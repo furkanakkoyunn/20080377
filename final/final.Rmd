@@ -1,7 +1,7 @@
 ---
-title: "Title"
+title: "Climate footprint of Danish Consumption"
 author: 
-  - Last Name, First Name[^1]
+  - Akkoyun, Furkan[^1]
 bibliography: ../bibliography/biblio.bib
 csl: ../csl/apa.csl
 header-includes:
@@ -34,7 +34,7 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 <!-- ============================== FOOTNOTES ============================== -->
 <!-- ======================================================================= -->
-[^1]: Student ID, [Github Repo](https://github.com/YOUR_USER_NAME_HERE/YOUR_REPO_NAME_HERE)
+[^1]: 20080377, [Github Repo](https://github.com/furkanakkoyunn/20080377)
 
 # Important Information About Midterm
 
@@ -47,73 +47,66 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 \colorbox{WildStrawberry}{Read the README.md file in the project folder for more information.}
 
 # Introduction
-This outline has been created to assist you in writing your project assignment. You should cite all the sources you use, articles, presentations, projects, etc. Quoting and referencing gives readers the opportunity to access the resources you refer. **Even though you use your own words, if you are conveying the ideas of others in your work, you have to document the source of these ideas. Otherwise, you are committing academic plagiarism.** For example, you can refer to @aydinonat:2007 for academic writing rules. You can find lots of online resources on this topic.
 
-The sections in your project assignment should definitely include the sections in this text. Apart from the sections used here, you can use different subsections. When writing your project, use this file as a draft and adapt its content to your purposes.
-
-In this section, mention the purpose and importance of your work in a few paragraphs.
+Global climate transformation is an urgent global challenge that needs a complete understanding of the diverse factors contributing to it. These include the consumption customs of different countries and economies. Denmark is no anomaly among developed countries with a high average of living. The climate footprint is the total share of greenhouse gases ejected throughout the life cycle of a product or service, including production, transport, and use. The climate footprint of Danish consumption is an important area of research. Danish consumption patterns are discussed over time, in several countries and economies, in several types of use, and in several industries. Concentrating on the roots of emissions and the causes for emissions in various sectors, this article examines how time, economies, types of use, and industries affect the environmental footprint of Danish consumption. An examination of the climate footprint of Danish consumption can shed light on the relationship between consumption, production, and greenhouse gas emissions. It can also supply insights into the environmental impact of consumption options in Denmark and beyond. The Data set used in the research was taken from Statistics Denmark.I chose the Climate footprint of Danish Consumption by time, countries/economies, types of use and industries Data set that has 153 observations with 13 variables including categorical industries (Origin of emissions) A Agriculture, forestry and fishing, B Mining and quarrying, C Manufacturing, D_E Utility services, F Construction, G_I Trade and transport etc., J Information and communication, K Financial and insurance, LA Real estate activities and renting of non-residential buildings, LB Dwellings, M_N Other business services, O_Q Public administration, education and health, R_S Arts, entertainment and other services. In the end, I formulated my question: "How do economies, types of use, and industries affect the climate footprint of Danish consumption in terms of greenhouse gas emissions? Then I focused more specifically on the articles related to my research question for the project.
 
 ## Literature Review
 
-In this section, discuss the articles you have read on the subject by giving references. This is a narrative citation @chang:2013. This one is a parenthetical citation [@chang:2013]. **Do not summarize each article individually under a separate title.** In the literature review section, **at least six** articles must be cited [@newbold:2003; @verzani:2014; @wickham:2014; @wooldridge:2015a].
+Climate footprint calculations are carried out for different activities such as transportation, energy consumption, water use, production and consumption of products. As a result of climate footprint calculations, people can take steps to reduce their carbon footprints and contribute to the fight against climate change. Studies on climate change and climate footprint and increased awareness make people more sensitive to environmental issues. Individuals and organizations need to take action to solve this problem. For a sustainable future, it is important to reduce greenhouse gas emissions, switch to renewable energy sources and protect natural resources.
+
+@batini:2020 propose a comprehensive package of pricing and sectoral-based mitigation instruments for Denmark and discuss fiscal measures for mitigating agricultural emissions and recommends the use of revenue-neutral feebate schemes to strengthen mitigation incentives, particularly for transportation and agriculture, fisheries and forestry, though these schemes could also be applied more widely. @wackernagel:1999 The Ecological Footprint is one of those indicators that try to capture a broad picture of humanity's demand on natural resources, following the principle of consumer responsibility. @jack:2021 makes an original contribution using storytelling, a step in the direction of increasing empathy and compassion for the various carbon footprint cohorts and working toward socially and environmentally sustainable futures. @antal:2021 different measures, definitions and databases are used. The environmental indicators range from production-based energy and emission accounts to consumption-based carbon-, material- and ecological footprints. @dubois:2019 highlights the need for climate policies that target household consumption and behavioral decisions as key components of low-carbon futures. @salo:2019 authors found that while carbon footprint calculators can be effective tools for promoting sustainable household consumption practices, there are limitations to their use, such as incomplete data and language barriers. Overall, the research highlights the potential benefits and limitations of carbon footprint calculators in promoting sustainable household consumption practices.
 
 # Data
-In this section, discuss the source of the data set you use in your study, if you have done any operation on the raw data, these operations and the summary statistics about the data set. In this section, it is mandatory to have a table (Table \ref{tab:summary}) containing summary statistics (mean, standard deviation, minimum, maximum, etc. values) of all variables. Make the necessary references to your tables as shown in the previous sentence [@perkins:1991].
 
-R codes for the analysis should start in this section. In this section, you should include the codes that imports the data set into R and the codes that generate summary statistics.
-
-```{r}
+```{r code_chunk_name, echo = FALSE}
 library(tidyverse)
 library(here)
-survey <- read_csv(here("data/survey.csv"))
+survey <- read_csv(here("data/Climate.csv"))
 ```
 
-Note that code options are edited in some of the code chunks in the Rmd file.
 
 ```{r, echo=FALSE}
-library(xtable) 
+library(xtable)
 library(summarytools)
 st_options(lang = "en")
 ```
 
-With the `echo=FALSE` option, prevent the codes from appearing in the derived pdf file and report your results in tables.
 
 ```{r results='asis', echo=FALSE}
 survey %>%
-  select("sex", "credits", "handedness", "height", "handspan") %>% 
-  descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>% 
+  select("A Agriculture, forestry and fishing", "B Mining and quarrying", "C Manufacturing", "D_E Utility services", "F Construction") %>%
+  descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>%
   xtable(caption = "Summary Statistics",
          label = "tab:summary",
-         align = c("l", "c", "c", "c", "c", "c")) %>% 
+         align = c("l", "c", "c", "c", "c", "c")) %>%
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
 
+# Method
 
-# Methods and Data Analysis
-In this section describe the methods that you use to achieve the purpose of the study. You should use the appropriate analysis methods (such as hypothesis tests and correlation analysis) that we covered in the class. If you want, you can also use other methods that we haven't covered. If you think some method is more suitable for the purpose of the analysis and the data set, you can use that method [@newbold:2003; @verzani:2014; @wickham:2014; @wooldridge:2015a].
+```{r predictor, fig.align='center', fig.cap='Predictor Variables', results='asis', echo=FALSE}
+# Load the dataset
+dataset <- read.csv("C:/Users/furka/OneDrive/Masaüstü/20080377/data/Climate.csv")
 
-For example, if you are performing regression analysis, discuss your predicted equation in this section. Write your equations and mathematical expressions using $LaTeX$.
+# Perform multiple linear regression
+model <- lm(`D_E Utility services` ~ `K Financial and insurance` + `B Mining and quarrying` + `C Manufacturing`, data = dataset)
 
-$$
-Y_t = \beta_0 + \beta_N N_t + \beta_P P_t + \beta_I I_t + \varepsilon_t
-$$
+# Create a bar plot of regression coefficients
+coefficients <- coef(model)
+predictor_names <- c("K Financial and insurance", "B Mining and quarrying", "C Manufacturing")
+coefficients_df <- data.frame(Predictor = predictor_names, Coefficient = coefficients[-1])
 
-This section should also include different tables and plots. You can add histograms, scatter plots (such as Figure \@ref(fig:plot)), box plots, etc. Make the necessary references to your figures as shown in the previous sentence.
+# Sort the coefficients by magnitude
+coefficients_df <- coefficients_df[order(abs(coefficients_df$Coefficient), decreasing = TRUE), ]
 
+# Create the bar plot
+barplot(coefficients_df$Coefficient, names.arg = coefficients_df$Predictor,
+        xlab = "Variables", ylab = "Coefficient",
+        main = "Factors Affecting", col = "steelblue")
 
-```{r plot, fig.align='center', fig.cap='An Awesome Plot'}
-survey %>% 
-  ggplot(aes(x = handedness, y = handspan)) +
-  geom_point() +
-  geom_smooth() +
-  scale_x_continuous("Handedness") + 
-  scale_y_continuous("Handspan")
+# Add a horizontal line at zero for reference
+abline(h = 0, col = "red", lty = 2)
 ```
-
-
-# Conclusion
-Summarize the results of your analysis in this section. Discuss to what extent your results responded to the research question you identified at the beginning and how this work could be improved in the future.
-
 **References section is created automatically by Rmarkdown. There is no need to change the references section in the draft file.**
 
 **_You shouldn't delete the last 3 lines. Those lines are required for References section._**
