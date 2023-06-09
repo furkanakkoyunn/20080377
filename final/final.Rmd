@@ -1,5 +1,5 @@
 ---
-title: "Climate footprint of Danish Consumption"
+title: "Climate Footprint of Danish Consumption"
 author: 
   - Akkoyun, Furkan[^1]
 bibliography: ../bibliography/biblio.bib
@@ -25,7 +25,7 @@ urlcolor: blue
 fontsize: 12pt
 biblio-style: apalike
 abstract: |
-    Write your abstract here.
+    This research project aims to explore the relationship between variables Financial, Dwellings, and Entertainment and their impact on consumption values of the climate footprint using a linear regression model. The analysis is conducted on the Danish Consumption dataset, which encompasses a diverse range of data related to consumer behavior and environmental factors. The research question driving this project include understanding the extent to which Financial, Dwellings, and Entertainment variables influence consumption, and how accurately a linear regression model can predict consumption values based on these variables. The project also investigates any potential interactions or correlations between the variables and their combined impact on consumption behavior. To address these questions, the study employs a linear regression model in R. The Danish Consumption dataset is preprocessed and cleaned to ensure accurate and reliable results. The variables Financial, Dwellings, and Entertainment are selected as independent variables, and consumption values are treated as the dependent variable. The model is trained on the dataset, allowing for the estimation of coefficients and predictions of consumption values based on the selected variables.The findings of the analysis indicate that the linear regression model effectively predicts consumption values using the Financial, Dwellings, and Entertainment variables. The variable Financial shows a positive and significant effect on consumption, suggesting that individuals with higher financial resources tend to spend more. In contrast, the variable Dwellings displays a negative effect, indicating that owning more properties is associated with reduced consumption levels. The variable Entertainment demonstrates a positive impact on consumption, implying that increased access to entertainment options correlates with higher spending patterns. Policymakers, marketers, and economists who seek to raise awareness of the climate footprint should take these findings seriously. This information may be used by policymakers to create plans that support economic expansion and stimulate consumer spending. Based on their purchasing power and entertainment choices, marketers can target particular customer categories with their marketing initiatives. These factors may be incorporated into models by economists to examine consumption trends and project future patterns. The link between financial, housing, and entertainment characteristics and consumption habits is a key finding of this study effort. The outcomes of the linear regression analysis demonstrate how important these factors are for comprehending and forecasting customer behavior. By including more factors and examining how they interact, future research might build on this work to better understand consumption patterns and guide decision-making across multiple industries.
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FALSE)
@@ -36,19 +36,11 @@ knitr::opts_chunk$set(cache = FALSE, echo = TRUE, message = FALSE, warning = FAL
 <!-- ======================================================================= -->
 [^1]: 20080377, [Github Repo](https://github.com/furkanakkoyunn/20080377)
 
-# Important Information About Midterm
 
-\colorbox{BurntOrange}{WRITE YOUR GITHUB REPO LINK ON LINE 37 IN THIS FILE!}
-
-**Project Proposal submisson will be done by uploading a zip file to the ekampus system along with the Github repo link. If you do not upload a zip file to the system and do not provide a Github repo link, you will be deemed not to have entered the midterm and final exams.**
-
-**You must upload your project folder (`YourStudentID.zip` file) to *ekampus.ankara.edu.tr* until 9 June 2023, 23:59.**
-
-\colorbox{WildStrawberry}{Read the README.md file in the project folder for more information.}
 
 # Introduction
 
-Global climate transformation is an urgent global challenge that needs a complete understanding of the diverse factors contributing to it. These include the consumption customs of different countries and economies. Denmark is no anomaly among developed countries with a high average of living. The climate footprint is the total share of greenhouse gases ejected throughout the life cycle of a product or service, including production, transport, and use. The climate footprint of Danish consumption is an important area of research. Danish consumption patterns are discussed over time, in several countries and economies, in several types of use, and in several industries. Concentrating on the roots of emissions and the causes for emissions in various sectors, this article examines how time, economies, types of use, and industries affect the environmental footprint of Danish consumption. An examination of the climate footprint of Danish consumption can shed light on the relationship between consumption, production, and greenhouse gas emissions. It can also supply insights into the environmental impact of consumption options in Denmark and beyond. The Data set used in the research was taken from Statistics Denmark.I chose the Climate footprint of Danish Consumption by time, countries/economies, types of use and industries Data set that has 153 observations with 13 variables including categorical industries (Origin of emissions) A Agriculture, forestry and fishing, B Mining and quarrying, C Manufacturing, D_E Utility services, F Construction, G_I Trade and transport etc., J Information and communication, K Financial and insurance, LA Real estate activities and renting of non-residential buildings, LB Dwellings, M_N Other business services, O_Q Public administration, education and health, R_S Arts, entertainment and other services. In the end, I formulated my question: "How do economies, types of use, and industries affect the climate footprint of Danish consumption in terms of greenhouse gas emissions? Then I focused more specifically on the articles related to my research question for the project.
+Global climate transformation is an urgent global challenge that needs a complete understanding of the diverse factors contributing to it. These include the consumption customs of different countries and economies. Denmark is no anomaly among developed countries with a high average of living. The climate footprint is the total share of greenhouse gases ejected throughout the life cycle of a product or service, including production, transport, and use. The climate footprint of Danish consumption is an important area of research. Danish consumption patterns are discussed over time, in several countries and economies, in several types of use, and in several industries. Concentrating on the roots of emissions and the causes for emissions in various sectors, this article examines how time, economies, types of use, and industries affect the environmental footprint of Danish consumption. An examination of the climate footprint of Danish consumption can shed light on the relationship between consumption, production, and greenhouse gas emissions. It can also supply insights into the environmental impact of consumption options in Denmark and beyond. In the end, we formulate the research question: "How do types of uses and industries affect the climate footprint of Danish consumption in terms of greenhouse gas emissions? Then, I focused more specifically on articles related to my research question for the project.
 
 ## Literature Review
 
@@ -56,12 +48,18 @@ Climate footprint calculations are carried out for different activities such as 
 
 @batini:2020 propose a comprehensive package of pricing and sectoral-based mitigation instruments for Denmark and discuss fiscal measures for mitigating agricultural emissions and recommends the use of revenue-neutral feebate schemes to strengthen mitigation incentives, particularly for transportation and agriculture, fisheries and forestry, though these schemes could also be applied more widely. @wackernagel:1999 The Ecological Footprint is one of those indicators that try to capture a broad picture of humanity's demand on natural resources, following the principle of consumer responsibility. @jack:2021 makes an original contribution using storytelling, a step in the direction of increasing empathy and compassion for the various carbon footprint cohorts and working toward socially and environmentally sustainable futures. @antal:2021 different measures, definitions and databases are used. The environmental indicators range from production-based energy and emission accounts to consumption-based carbon-, material- and ecological footprints. @dubois:2019 highlights the need for climate policies that target household consumption and behavioral decisions as key components of low-carbon futures. @salo:2019 authors found that while carbon footprint calculators can be effective tools for promoting sustainable household consumption practices, there are limitations to their use, such as incomplete data and language barriers. Overall, the research highlights the potential benefits and limitations of carbon footprint calculators in promoting sustainable household consumption practices.
 
-# Data
+# Dataset
+
+We will analyze the climate footprint of Danish Consumption by  industries and type of use by general consumption. The Data set used in the research was taken from Statistics Denmark website. Statistics Denmark is a Danish governmental organization under the Ministry of the Interior and Housing and which reports to the Minister of Economic and Internal Affairs. The organization is responsible for creating statistics on the Danish society, for example employment statistics, trade balance, and demographics. Data set that has 144 observations with 14 variables including categorical industries (Origin of emissions) Agriculture , Mining , Manufacturing , Utility services , Construction ,  Trade , Information , Financial , Real estate , Dwellings , Other business services, Public administration, Entertainment and Consumption. 
+
+## Data Summary Statistics
+
+(Table \ref{tab:summary})  summarizes the key statistics derived from our dataset, which includes information on the various consumption categories based on tonnes of CO2 emitted. The mean Agriculture value is 1,110,368.24, with a significant standard deviation of 2,190,280.92. Dwellings show a mean of 11,524.81 and a standard deviation of 28,155.06. Entertainment has a mean of 29,606.35 and a standard deviation of 52,132.34. Financial has a mean of 13,879.33 and a standard deviation of 25,301.07. Consumption has a mean of 6,415,264.99 and a high standard deviation of 11,440,660.73.The range varies for each category, with Agriculture having the widest range (-345,549.00 to 9,416,203.00) and Dwellings having the narrowest (0.00 to 96,670.00). These statistics provide insights into the average values and variability within each consumption category, facilitating a better understanding of the data.
 
 ```{r code_chunk_name, echo = FALSE}
 library(tidyverse)
 library(here)
-survey <- read_csv(here("data/Climate.csv"))
+survey <- read_csv(here("data/Danish_Consumption.csv"))
 ```
 
 
@@ -74,7 +72,7 @@ st_options(lang = "en")
 
 ```{r results='asis', echo=FALSE}
 survey %>%
-  select("A Agriculture, forestry and fishing", "B Mining and quarrying", "C Manufacturing", "D_E Utility services", "F Construction") %>%
+  select("Agriculture", "Financial", "Dwellings", "Entertainment", "Consumption") %>%
   descr(stats = c("mean", "sd", "min", "med", "max"), transpose = TRUE) %>%
   xtable(caption = "Summary Statistics",
          label = "tab:summary",
@@ -82,18 +80,27 @@ survey %>%
   print(booktabs = TRUE, comment = FALSE, caption.placement = "top")
 ```
 
-# Method
+
+# Methods and Data Analysis
+
+## Predictor Variable Analysis: Identifying Key Factors Affecting Consumption
+
+Understanding the factors that influence consumption patterns is essential for decision-making and policy formulation. In this analysis, we examine three predictor variables - Financial, Dwellings, and Entertainment - to identify their impact on Consumption. The analysis utilizes a multiple linear regression model to uncover the relationships between these variables.
+
+(Figure \@ref(fig:predictor))  presents the results of the multiple linear regression model. The bar plot illustrates the regression coefficients of the predictor variables.The coefficient values show the strength and direction of each predictor variable's association to consumption. A positive coefficient means that rising levels of the predictor variable are linked to rising levels of consumption, whereas a negative coefficient suggests the opposite. Based on the coefficients, Financial appears to be the most influential predictor variable, with the highest absolute coefficient value. It suggests that changes in Financial have a significant impact on Consumption. Entertainment also exhibit notable coefficients, indicating their relevance in understanding consumption patterns. Interestingly, the Dwellings showed a negative coefficient , meaning that an increase in the Dwelling is associated with a decrease in Consumption. (Figure \@ref(fig:predictor))
+
 
 ```{r predictor, fig.align='center', fig.cap='Predictor Variables', results='asis', echo=FALSE}
 # Load the dataset
-dataset <- read.csv("C:/Users/furka/OneDrive/Masaüstü/20080377/data/Climate.csv")
+dataset <- read.csv("C:/Users/furka/OneDrive/Masaüstü/20080377/data/Danish_Consumption.csv")
 
 # Perform multiple linear regression
-model <- lm(`D_E Utility services` ~ `K Financial and insurance` + `B Mining and quarrying` + `C Manufacturing`, data = dataset)
+model <- lm(Consumption ~ Financial + Dwellings + Entertainment, data = dataset)
+
 
 # Create a bar plot of regression coefficients
 coefficients <- coef(model)
-predictor_names <- c("K Financial and insurance", "B Mining and quarrying", "C Manufacturing")
+predictor_names <- c("Financial", "Dwellings", "Entertainment")
 coefficients_df <- data.frame(Predictor = predictor_names, Coefficient = coefficients[-1])
 
 # Sort the coefficients by magnitude
@@ -101,15 +108,68 @@ coefficients_df <- coefficients_df[order(abs(coefficients_df$Coefficient), decre
 
 # Create the bar plot
 barplot(coefficients_df$Coefficient, names.arg = coefficients_df$Predictor,
-        xlab = "Variables", ylab = "Coefficient",
-        main = "Factors Affecting", col = "steelblue")
+        xlab = "Predictor Variables", ylab = "Coefficient",
+        main = "Factors Affecting Consumption", col = "steelblue")
 
 # Add a horizontal line at zero for reference
 abline(h = 0, col = "red", lty = 2)
 ```
-**References section is created automatically by Rmarkdown. There is no need to change the references section in the draft file.**
 
-**_You shouldn't delete the last 3 lines. Those lines are required for References section._**
+We created a scatter plot (Figure \@ref(fig:Consumption))  further explore the relationship between Consumption and Financial. The plot visualizes the data points and the fitted line generated by the regression model. It helps us understand the nature of the relationship between Consumption and Financial. As pictured in the plot,If the data points tend to cluster around the line, it indicates a strong correlation between the variables (Consumption and Financial) , so further supporting the finding from the regression analysis.
+```{r Consumption, fig.align='center', fig.cap='Scatter Plot: Financial VS. Consumption', results='asis', echo=FALSE}
+survey %>%
+  ggplot(aes(x = Consumption, y = Financial)) +
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous("Consumption") +
+  scale_y_continuous("Financial")
+```
+
+\newpage
+## Prediction
+
+We employed a linear regression model to predict consumption patterns based on the "Danish_Consumption.csv" Data set. The regression equation can be expressed as follows:
+
+\[ Consumption = \beta_0 + \beta_1Financial + \beta_2Dwellings + \beta_3Entertainment + \varepsilon \]
+
+In the this equation, Consumption represents the predicted consumption levels. The constant term \( \beta_0 \) and the estimated coefficients 
+\( \beta_1, \beta_2, \beta_3\) are associated with the independent variables Financial, Dwellings, and Entertainment, respectively. These coefficients provide insights into the magnitude and direction of the impact that each variable has on the predicted consumption patterns. Additionally, the error term \( \varepsilon \) accounts for any unexplained variability in the model. By analyzing these coefficients, we can understand how changes in Financial, Dwellings, and Entertainment affect the predicted consumption levels.
+
+By fitting the linear regression model in R using the Danish Consumption Data set, we were able to estimate the values of the coefficients and utilize them to make predictions on new observations.
+
+## Results
+
+We present a line plot (Figure \@ref(fig:predict)) comparing predicted consumption values and actual consumption values using the "Danish_Consumption.csv" Data set. This plot provides valuable insights into the performance of the linear regression model in predicting consumption values accurately based on the variables Financial, Dwellings, and Entertainment from the "Danish_Consumption.csv" Data set. With each sample acting as a separate identifier, this graphic shows the connection between the samples and their related consumption levels. The dark red line indicates consumption numbers predicted by a linear regression model, while the blue line reflects actual consumption values. We may evaluate the accuracy of the model's consumption estimation by visually observing how close the blue line is to the dark red line. This visualization helps us understand the nature of the impact that Financial has on the climate footprint of Danish consumption. (Figure \@ref(fig:predict))
+
+```{r predict, fig.align='center', fig.cap='Predicted Consumption VS. Actual Consumption', results='asis', echo=FALSE}
+dataset <- read.csv("C:/Users/furka/OneDrive/Masaüstü/20080377/data/Danish_Consumption.csv")
+
+model <- lm(Consumption ~  Financial + Dwellings +  Entertainment, data = dataset)
+
+
+predictions <- predict(model, dataset)
+
+plot(dataset$Consumption,
+     type = "l", xlab = "Samples", ylab = "Consumption",
+     col = "blue")
+
+lines(predictions, col = "darkred")
+
+legend("topright", legend = c("Actual", "Predicted"),
+       col = c("blue", "darkred"), lty = 1, bty = "n")
+
+
+```
+
+
+# Conclusion
+
+In conclusion, this academic paper explored to assess the accuracy of a linear regression model in predicting consumption values based on the variables Financial, Dwellings, and Entertainment using the "Danish_Consumption.csv" Data set. 
+
+The results revealed that the variable Financial had a significant positive effect on consumption, indicating that an increase in financial resources was associated with higher levels of consumption. The variable Entertainment also displayed a positive effect on consumption, indicating that increased opportunities for entertainment activities were linked to higher consumption levels. On the other hand, the variable Dwellings showed a negative impact on consumption, suggesting that a higher number of dwellings led to decreased consumption. The model showed some degree of accuracy in estimating consumption levels, but more research and statistical analysis are required to determine the model's overall usefulness because a bigger sample size might improve the model's accuracy.  By fitting the linear regression model in R and calculating the coefficients, we can forecast fresh observations. Policymakers, marketers, and economists are just a few of the stakeholders involved in consumption analysis who can benefit from this method.
+
+Overall, our analyzes findings highlight the importance of considering specific variables, especially Financial and other variables such as Entertainment , when predicting consumption patterns for climate footprint. Future research can further expand the Data set and incorporate additional variables to enhance the model's accuracy and provide more comprehensive insights into consumption behavior.
+
 
 \newpage
 # References {#references}
